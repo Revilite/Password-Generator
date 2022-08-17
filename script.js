@@ -27,26 +27,17 @@ var generatePassword = function () {
   // }
   if (true) {
 
-    var lowerChoice = window.confirm("Would you like to use Lowercase Characters?");
-    if (lowerChoice) {
-      lowerBool = true;
-    }
+    lowerBool = window.confirm("Would you like to use Lowercase Characters?");
+   
 
-
-    var upperChoice = window.confirm("Would you like to use Uppercase Characters?");
-    if (upperChoice) {
-      upperBool = true;
-    }
-
-    var numberChoice = window.confirm("Would you like to use Numbers?");
-    if (numberChoice) {
-      numberBool = true;
-    }
+    upperBool = window.confirm("Would you like to use Uppercase Characters?");
  
-    var specialChoice = window.confirm("Would you like to use Special Characters?");
-    if (specialChoice) {
-      specialBool = true;
-    }
+
+    numberBool = window.confirm("Would you like to use Numbers?");
+
+ 
+    specialBool = window.confirm("Would you like to use Special Characters?");
+
   
     if (!lowerBool && !upperBool){
       if(!numberBool && !specialBool){
@@ -54,7 +45,30 @@ var generatePassword = function () {
       }
     }
     else{
-      
+      var finalPassword = "";
+
+      for(var i = 0; i < numOfCharacters; i++){
+        var arrayChoice = Math.floor(Math.random() * 4)
+        if (arrayChoice == 0 && lowerBool){
+          finalPassword = finalPassword + lowercase[Math.floor(Math.random()*27)]
+        }
+        
+        if (arrayChoice == 1 && upperBool){
+          finalPassword = finalPassword + uppercase[Math.floor(Math.random()*27)]
+        }
+        if (arrayChoice == 2 && numberBool){
+          finalPassword = finalPassword + numbers[Math.floor(Math.random()*10)]
+        }
+        if (arrayChoice == 3 && specialBool){
+          finalPassword = finalPassword + special[Math.floor(Math.random()*31)]
+        }
+
+
+
+
+
+      }
+
     }
     
 
@@ -64,7 +78,7 @@ var generatePassword = function () {
 
 
 
-  return "hello World";
+  return finalPassword;
 }
 
 
