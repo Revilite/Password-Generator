@@ -48,20 +48,27 @@ var generatePassword = function () {
       var finalPassword = "";
 
       for(var i = 0; i < numOfCharacters; i++){
-        var arrayChoice = Math.floor(Math.random() * 4)
+        var arrayChoice = Math.floor(Math.random() * 4);
+        arrayChoice = 3;
+        while (true){
         if (arrayChoice == 0 && lowerBool){
-          finalPassword = finalPassword + lowercase[Math.floor(Math.random()*27)]
+          finalPassword = finalPassword + lowercase[Math.floor(Math.random()*27)];
+          break;
         }
-        
+
         if (arrayChoice == 1 && upperBool){
-          finalPassword = finalPassword + uppercase[Math.floor(Math.random()*27)]
+          finalPassword = finalPassword + uppercase[Math.floor(Math.random()*27)];
+          break;
         }
         if (arrayChoice == 2 && numberBool){
-          finalPassword = finalPassword + numbers[Math.floor(Math.random()*10)]
+          finalPassword = finalPassword + numbers[Math.floor(Math.random()*10)];
+          break;
         }
         if (arrayChoice == 3 && specialBool){
-          finalPassword = finalPassword + special[Math.floor(Math.random()*31)]
+          finalPassword = finalPassword + special[Math.floor(Math.random()*30)];
+          break;
         }
+      }
 
 
 
