@@ -17,78 +17,78 @@ var generatePassword = function () {
   var numOfCharacters = window.prompt("How many characters?");
   var typeCheck = parseInt(numOfCharacters);
 
-  
+
 
   // character limiter
-  if (numOfCharacters < 8){
-     window.alert("Your number cannot be less than 8 characters");
+  if (numOfCharacters < 8) {
+    window.alert("Your number cannot be less than 8 characters");
   }
-  else if (numOfCharacters > 128){
+  else if (numOfCharacters > 128) {
     window.alert("Your number cannot be more than 128 characters");
   }
-  else if (isNaN(typeCheck)){
+  else if (isNaN(typeCheck)) {
     window.alert("Your answer has to be a number");
   }
 
   else {
-    
+
     lowerBool = window.confirm("Would you like to use Lowercase Characters?");
-   
+
 
     upperBool = window.confirm("Would you like to use Uppercase Characters?");
- 
+
 
     numberBool = window.confirm("Would you like to use Numbers?");
 
- 
+
     specialBool = window.confirm("Would you like to use Special Characters?");
 
-  
-    if (!lowerBool && !upperBool && !numberBool && !specialBool){
-        window.alert("You have to allow at least 1 type of character");
-      
+
+    if (!lowerBool && !upperBool && !numberBool && !specialBool) {
+      window.alert("You have to allow at least 1 type of character");
+
     }
-    else{
+    else {
       var finalPassword = "";
       //generation process
-      for(var i = 0; i < numOfCharacters; i++){
+      for (var i = 0; i < numOfCharacters; i++) {
         var arrayChoice = Math.floor(Math.random() * 4);
         var check = true;
         // console.log(arrayChoice + "this is array choice");
 
-        while (check){
+        while (check) {
           arrayChoice = Math.floor(Math.random() * 4);
-        if (arrayChoice == 0 && lowerBool){
-          finalPassword = finalPassword + lowercase[Math.floor(Math.random()*26)];
-          // console.log(0);
-          check = false;
-        }
+          if (arrayChoice == 0 && lowerBool) {
+            finalPassword = finalPassword + lowercase[Math.floor(Math.random() * 26)];
+            // console.log(0);
+            check = false;
+          }
 
-        else if (arrayChoice == 1 && upperBool){
-          finalPassword = finalPassword + uppercase[Math.floor(Math.random()*26)];
-          // console.log(1);
-          check = false;
+          else if (arrayChoice == 1 && upperBool) {
+            finalPassword = finalPassword + uppercase[Math.floor(Math.random() * 26)];
+            // console.log(1);
+            check = false;
+          }
+          else if (arrayChoice == 2 && numberBool) {
+            finalPassword = finalPassword + numbers[Math.floor(Math.random() * 10)];
+            // console.log(2);
+            check = false;
+          }
+          else if (arrayChoice == 3 && specialBool) {
+            finalPassword = finalPassword + special[Math.floor(Math.random() * 30)];
+            // console.log(3);
+            check = false;
+          }
         }
-        else if (arrayChoice == 2 && numberBool){
-          finalPassword = finalPassword + numbers[Math.floor(Math.random()*10)];
-          // console.log(2);
-          check = false;
-        }
-        else if (arrayChoice == 3 && specialBool){
-          finalPassword = finalPassword + special[Math.floor(Math.random()*30)];
-          // console.log(3);
-          check = false;
-      }
-    }
       }
     }
   }
 
   //Final Return
-  if (finalPassword !== undefined){
-  return finalPassword;
+  if (finalPassword !== undefined) {
+    return finalPassword;
   }
-  else{
+  else {
     return "";
   }
 }
