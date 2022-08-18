@@ -19,7 +19,7 @@ var generatePassword = function () {
 
   
 
-
+  // character limiter
   if (numOfCharacters < 8){
      window.alert("Your number cannot be less than 8 characters");
   }
@@ -31,7 +31,7 @@ var generatePassword = function () {
   }
 
   else {
-
+    
     lowerBool = window.confirm("Would you like to use Lowercase Characters?");
    
 
@@ -50,7 +50,7 @@ var generatePassword = function () {
     }
     else{
       var finalPassword = "";
-
+      //generation process
       for(var i = 0; i < numOfCharacters; i++){
         var arrayChoice = Math.floor(Math.random() * 4);
         var check = true;
@@ -84,6 +84,7 @@ var generatePassword = function () {
     }
   }
 
+  //Final Return
   if (finalPassword !== undefined){
   return finalPassword;
   }
